@@ -92,6 +92,7 @@ public class SprintBootUploadFileApplicationTests {
 
 				if(totalChunks-chunksDownloaded == 1){
 					newArray = new byte[(int) (fileSize% CHUNK_SIZE)];
+					System.arraycopy(array, (int) (chunksDownloaded * CHUNK_SIZE), newArray, 0, fileSize%CHUNK_SIZE);
 				}
 				else {
 					newArray = new byte[CHUNK_SIZE];
